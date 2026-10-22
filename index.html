@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lucia Mooloolaba</title>
-<meta name="description" content="Lucia: 17 coastal apartments on Smith Street, Mooloolaba. Register your interest for first access before public release.">
+<meta name="description" content="Lucia: seventeen residences in a quiet cul-de-sac, 200 metres from Mooloolaba Esplanade. Register your interest for first access before public release.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600&display=swap">
 <style>
@@ -48,6 +48,11 @@ section { padding-block: clamp(64px, 9vw, 120px) }
 .intro h2 { font-size: clamp(40px, 5vw, 64px) }
 .intro p + p { margin-top: 16px }
 .intro .eyebrow { color: var(--sage); margin-bottom: 18px }
+.intro .sub { font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); color: var(--muted); margin-top: 14px; line-height: 1.25 }
+.building { padding-top: 0 }
+.building .facts { margin-top: 0 }
+.hero .lede { max-width: 14ch }
+.hero .count { max-width: 44ch }
 .facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 32px; border-top: 1px solid var(--line) }
 .facts div { padding: 18px 12px 0 0 }
 .facts b { display: block; font-family: var(--display); font-weight: 500; font-size: 44px; line-height: 1; color: var(--forest) }
@@ -121,34 +126,47 @@ footer a { color: var(--cream) }
   <div class="hero-text">
     <h1>Lucia</h1>
     <div class="place">Mooloolaba</div>
-    <p class="lede">Coastal living,<br>coming soon.</p>
-    <p class="count">17 apartments · two-bedroom residences and two penthouses</p>
+    <p class="lede">Your quieter side of Mooloolaba.</p>
+    <p class="count">Seventeen residences in a quiet cul-de-sac, just 200 metres from the Esplanade. Beach walks, sunset drinks and dinner at The Wharf, all an easy stroll from your front door.</p>
     <div class="cta-row">
       <a class="btn" href="#register">Register your interest</a>
-      <span>Subscribers get first access before public release.</span>
+      <span>Registered buyers get first access, a week before public release.</span>
     </div>
   </div>
   <div class="hero-img">
-    <img src="img/lucia-02.jpg" alt="Lucia from Smith Street: a six-storey building with curved white balconies, timber screens and a stone-faced entry">
+    <img src="img/lucia-02.jpg" alt="Artist's impression of Lucia from the street">
     <span class="tag">Artist's impression. Subject to council approval.</span>
   </div>
 </header>
 
 <main>
-  <section>
+  <section aria-labelledby="life-h">
     <div class="wrap intro">
       <div>
-        <div class="eyebrow">35 Smith Street, Mooloolaba</div>
-        <h2>A boutique building of seventeen homes.</h2>
+        <div class="eyebrow">The lifestyle</div>
+        <h2 id="life-h">The Mooloolaba life</h2>
+        <p class="sub">A quiet cul-de-sac, 200 metres from Mooloolaba Esplanade.</p>
       </div>
       <div>
-        <p>Lucia is a six-storey building on Smith Street with only seventeen apartments. Fifteen are two-bedroom residences, and two are three-bedroom penthouses on the top floor.</p>
-        <p>Curved balconies, garden planters and patterned timber screens give every home its own outdoor room, with natural stone at street level.</p>
+        <p>Start the morning with a swim between the flags, then a coffee on the Esplanade. Walk over Alex Hill, or follow the headland around to Alexandra Headland. Spend a lazy afternoon on the Spit with fish and chips. Meet friends for sunset drinks at Avani, then wander down to The Wharf for dinner. All of it on foot, with no need for the car.</p>
+        <p>With just seventeen residences, Lucia is a quieter place to come home to, a short walk from everything you love about Mooloolaba.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="building" aria-labelledby="bld-h">
+    <div class="wrap intro">
+      <div>
+        <div class="eyebrow">The building</div>
+        <h2 id="bld-h">Seventeen homes, one quiet street</h2>
+      </div>
+      <div>
         <div class="facts">
           <div><b>17</b><span>apartments in total</span></div>
           <div><b>15</b><span>two-bedroom residences</span></div>
           <div><b>2</b><span>three-bedroom penthouses</span></div>
         </div>
+        <p style="margin-top:24px">Residents share a pool and a common area, a place to cool off or catch up with neighbours without leaving home.</p>
       </div>
     </div>
   </section>
@@ -161,11 +179,11 @@ footer a { color: var(--cream) }
       </div>
       <div class="cards">
         <article class="card">
-          <img src="img/lucia-06.jpg" alt="Corner view of Lucia's curved balconies with planters and timber screens">
-          <div><span class="n">Fifteen</span><h3>Two-bedroom residences</h3><p>Generous balconies with planter edges, filtered light through timber screens, and secure basement parking.</p></div>
+          <img src="img/lucia-06.jpg" alt="Artist's impression of Lucia from the corner">
+          <div><span class="n">Fifteen</span><h3>Two-bedroom residences</h3><p>Two-bedroom homes. Floor plans go to registered buyers first.</p></div>
         </article>
         <article class="card">
-          <img src="img/lucia-04.jpg" alt="Lucia's white upper façade above a landscaped terrace">
+          <img src="img/lucia-04.jpg" alt="Artist's impression of Lucia's upper levels">
           <div><span class="n">Two</span><h3>Three-bedroom penthouses</h3><p>The top floor, held by just two homes. Details are released to registered buyers first.</p></div>
         </article>
       </div>
@@ -175,11 +193,11 @@ footer a { color: var(--cream) }
   <section>
     <div class="wrap">
       <div class="gallery">
-        <figure><img src="img/lucia-05.jpg" alt="Lucia's stone-clad entry and curved planter over the driveway"></figure>
-        <figure><img src="img/lucia-07.jpg" alt="Trailing plants spilling from a curved balcony planter"></figure>
-        <figure><img src="img/lucia-08.jpg" alt="Natural stone wall beside a patterned metal screen"></figure>
-        <figure><img src="img/lucia-10.jpg" alt="Woven metal screen beside a timber-framed window"></figure>
-        <figure><img src="img/lucia-09.jpg" alt="Planter edge in late afternoon light"></figure>
+        <figure><img src="img/lucia-05.jpg" alt="Artist's impression of Lucia"></figure>
+        <figure><img src="img/lucia-07.jpg" alt="Artist's impression of Lucia"></figure>
+        <figure><img src="img/lucia-08.jpg" alt="Artist's impression of Lucia"></figure>
+        <figure><img src="img/lucia-10.jpg" alt="Artist's impression of Lucia"></figure>
+        <figure><img src="img/lucia-09.jpg" alt="Artist's impression of Lucia"></figure>
       </div>
       <p class="caption">All images are artist's impressions and subject to council approval. Final design and finishes may change.</p>
     </div>
