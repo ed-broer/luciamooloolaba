@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lucia Mooloolaba</title>
-<meta name="description" content="Lucia: seventeen residences in a quiet cul-de-sac, 200 metres from Mooloolaba Esplanade. Register your interest for first access before public release.">
+<meta name="description" content="Lucia: seventeen residences in a quiet cul-de-sac, a two-minute walk from Mooloolaba Esplanade. Register your interest for first access before public release.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Manrope:wght@400;500;600&display=swap">
 <style>
-/* Layout: the sign carried onto the web. Forest panel beside the street render, then cream bands: the building, the homes, a gallery, progress, and the register form. */
+/* Layout: full-screen render with the LUCIA name over it, a slim sticky bar, then airy centred sections and full-width image bands. */
 :root {
-  --forest: #2c342b; --forest-2: #384236; --cream: #efebe3; --paper: #f7f4ee; --ink: #1f231e; --muted: #5d6458;
-  --sand: #cdb68a; --sage: #66755a; --line: #d9d3c6; --error: #9b2c22;
+  --forest: #2c342b; --cream: #efebe3; --paper: #faf8f4; --ink: #1f231e; --muted: #5d6458;
+  --sand: #cdb68a; --sage: #66755a; --line: #ddd7ca; --error: #9b2c22;
   --display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
   --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   color-scheme: light;
@@ -16,73 +16,79 @@
 * { box-sizing: border-box }
 html { scroll-behavior: smooth }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6 }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65 }
 img { max-width: 100%; display: block }
-h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance }
 p { margin: 0 }
 a { color: inherit }
 .wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)) }
-.eyebrow { font-size: 13px; letter-spacing: .32em; text-transform: uppercase; font-weight: 500 }
-.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 30px; background: var(--sand); color: var(--forest); font: 600 15px var(--body); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border: 0; cursor: pointer }
+.narrow { max-width: 680px; margin: 0 auto; text-align: center }
+.eyebrow { font-size: 12px; letter-spacing: .32em; text-transform: uppercase; font-weight: 600; color: var(--sage) }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 30px; background: var(--sand); color: var(--forest); font: 600 14px var(--body); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; border: 0; border-radius: 999px; cursor: pointer }
 .btn:hover { background: #d8c49c }
-.btn:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px }
-.caption { font-size: 12px; color: var(--muted); margin-top: 8px }
+.btn.dark { background: var(--forest); color: var(--cream) }
+.btn.dark:hover { background: #3a4439 }
+.btn:focus-visible, input:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px }
+
+/* Sticky bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(250,248,244,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line) }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px }
+.bar .mark { font-family: var(--display); font-size: 26px; letter-spacing: .28em; text-decoration: none; color: var(--forest) }
+.bar .btn { min-height: 42px; padding: 0 22px; font-size: 12px }
 
 /* Hero */
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--forest); color: var(--cream) }
-.hero-text { padding: clamp(40px, 7vw, 96px) clamp(20px, 6vw, 88px); padding-left: max(clamp(20px, 6vw, 88px), env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; justify-content: center; gap: 22px }
-.hero h1 { font-size: clamp(84px, 13vw, 168px); letter-spacing: -.01em; margin-bottom: -6px }
-.hero .place { font-size: clamp(16px, 1.8vw, 21px); letter-spacing: .5em; text-transform: uppercase; font-weight: 500 }
-.hero .lede { font-family: var(--display); font-size: clamp(34px, 4vw, 52px); line-height: 1.08; margin-top: 18px }
-.hero .count { color: #d6d1c4; font-size: 18px }
-.hero .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 10px }
-.hero .cta-row span { color: #d6d1c4; font-size: 15px; max-width: 26ch }
-.hero-img { position: relative; min-height: 420px }
-.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 40% }
-.hero-img .tag { position: absolute; right: 16px; bottom: 16px; background: rgba(31,35,30,.72); color: #f2efe8; font-size: 12px; padding: 6px 10px }
-@media (max-width: 860px) { .hero { grid-template-columns: minmax(0, 1fr) } .hero-img { min-height: 0; aspect-ratio: 1 / 1 } }
+.hero { position: relative; min-height: min(92vh, 900px); display: grid; color: #fff; overflow: hidden }
+.hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45% }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,24,20,.28) 0%, rgba(20,24,20,.08) 40%, rgba(20,24,20,.62) 100%) }
+.hero-in { position: relative; z-index: 1; display: grid; align-content: space-between; justify-items: center; text-align: center; padding-block: clamp(56px, 12vh, 120px) 56px }
+.hero h1 { font-weight: 300; font-size: clamp(76px, 15vw, 190px); letter-spacing: .14em; line-height: .9; margin-right: -.14em }
+.hero .place { font-size: clamp(13px, 1.5vw, 17px); letter-spacing: .6em; text-transform: uppercase; font-weight: 500; margin-top: 14px; margin-right: -.6em }
+.hero .bottom { display: grid; gap: 14px; justify-items: center; margin-top: 48px }
+.hero .bottom .eyebrow { color: #f2ede2 }
+.hero .lede { font-family: var(--display); font-size: clamp(30px, 4vw, 48px); line-height: 1.1 }
+.hero .tag { position: absolute; z-index: 1; right: 16px; bottom: 14px; font-size: 11px; color: rgba(255,255,255,.8) }
 
-/* Bands */
-section { padding-block: clamp(64px, 9vw, 120px) }
-.intro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 88px); align-items: center }
-.intro h2 { font-size: clamp(40px, 5vw, 64px) }
-.intro p + p { margin-top: 16px }
-.intro .eyebrow { color: var(--sage); margin-bottom: 18px }
-.intro .sub { font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); color: var(--muted); margin-top: 14px; line-height: 1.25 }
-.building { padding-top: 0 }
-.building .facts { margin-top: 0 }
-.hero .lede { max-width: 14ch }
-.hero .count { max-width: 44ch }
-.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 32px; border-top: 1px solid var(--line) }
-.facts div { padding: 18px 12px 0 0 }
-.facts b { display: block; font-family: var(--display); font-weight: 500; font-size: 44px; line-height: 1; color: var(--forest) }
-.facts span { font-size: 14px; color: var(--muted) }
-@media (max-width: 860px) { .intro { grid-template-columns: minmax(0, 1fr) } }
+/* Sections */
+section { padding-block: clamp(72px, 11vw, 140px) }
+.narrow h2 { font-size: clamp(36px, 4.6vw, 56px); margin-top: 16px }
+.intro p.lead { font-size: 19px; color: var(--muted); margin-top: 22px }
+.feature-img { margin-top: clamp(40px, 6vw, 72px) }
+.feature-img img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover }
+.caption { font-size: 12px; color: var(--muted); margin-top: 10px; text-align: center }
 
-.homes { background: var(--cream) }
-.homes-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 36px }
-.homes-head h2 { font-size: clamp(40px, 5vw, 60px) }
-.homes-head p { max-width: 46ch; color: var(--muted) }
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px }
+.band { position: relative; min-height: clamp(380px, 62vw, 680px); display: grid; place-items: center; color: #fff; text-align: center; overflow: hidden; padding: 0 }
+.band img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.band::after { content: ""; position: absolute; inset: 0; background: rgba(20,24,20,.38) }
+.band > div { position: relative; z-index: 1; display: grid; gap: 14px; padding: 24px }
+.band .eyebrow { color: #f2ede2 }
+.band h2 { font-size: clamp(44px, 6.4vw, 84px); font-weight: 300 }
+.life p + p { margin-top: 18px }
+.life .sub { font-family: var(--display); font-size: clamp(24px, 2.6vw, 30px); color: var(--forest); line-height: 1.25; margin-bottom: 22px }
+
+.building { background: var(--cream) }
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 44px }
+.facts b { display: block; font-family: var(--display); font-weight: 300; font-size: clamp(56px, 7vw, 84px); line-height: 1; color: var(--forest) }
+.facts span { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted) }
+.building .pool { margin-top: 40px; font-size: 18px }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: clamp(48px, 7vw, 80px); text-align: left }
 .card { background: var(--paper); display: grid; grid-template-rows: auto 1fr }
-.card img { aspect-ratio: 16 / 10; object-fit: cover; width: 100% }
-.card div { padding: 26px 28px 30px; display: grid; gap: 8px; align-content: start }
-.card h3 { font-size: 34px }
-.card .n { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); font-weight: 600 }
-@media (max-width: 760px) { .cards { grid-template-columns: minmax(0, 1fr) } }
+.card img { aspect-ratio: 4 / 3; object-fit: cover; width: 100% }
+.card div { padding: 24px 26px 28px; display: grid; gap: 6px; align-content: start }
+.card h3 { font-size: 30px }
+.card .n { font-size: 12px; letter-spacing: .26em; text-transform: uppercase; color: var(--sage); font-weight: 600 }
+@media (max-width: 760px) { .cards { grid-template-columns: minmax(0, 1fr) } .facts span { letter-spacing: .06em } }
 
-.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px }
-.gallery figure { margin: 0 }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px }
 .gallery img { aspect-ratio: 1 / 1; object-fit: cover; width: 100% }
-.gallery figure:first-child { grid-column: span 2; grid-row: span 2 }
-.gallery figure:first-child img { aspect-ratio: auto; height: 100% }
-@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 760px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)) } .gallery figure:last-child { display: none } }
+.gallery figure { margin: 0 }
 
 .progress { background: var(--forest); color: var(--cream) }
-.progress h2 { font-size: clamp(40px, 5vw, 60px); margin-bottom: 12px }
-.progress > .wrap > p { color: #d6d1c4; max-width: 56ch }
-.steps { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 1px solid #56604f }
-.steps li { padding: 18px 16px 0 0; position: relative }
+.progress .eyebrow { color: var(--sand) }
+.progress h2 { color: var(--cream) }
+.progress .narrow p { color: #d6d1c4; margin-top: 16px }
+.steps { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid #56604f }
+.steps li { padding: 20px 16px 0 0; position: relative }
 .steps li::before { content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--forest); border: 1px solid #8b9481 }
 .steps li.now::before { background: var(--sand); border-color: var(--sand) }
 .steps b { display: block; font-weight: 600; font-size: 15px }
@@ -90,17 +96,25 @@ section { padding-block: clamp(64px, 9vw, 120px) }
 .steps li.now span { color: var(--sand) }
 @media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); border-top: 0; border-left: 1px solid #56604f; padding-left: 20px; gap: 22px } .steps li { padding: 0 } .steps li::before { left: -26px; top: 6px } }
 
+.team .who { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 48px; border-top: 1px solid var(--line); padding-top: 28px; text-align: center }
+.team .who b { display: block; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage); font-weight: 600; margin-bottom: 6px }
+.team .who span { font-family: var(--display); font-size: 24px; color: var(--forest) }
+.team blockquote { margin: 28px 0 0; font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.35; color: var(--forest) }
+.team cite { display: block; margin-top: 14px; font: 600 12px var(--body); letter-spacing: .2em; text-transform: uppercase; font-style: normal; color: var(--muted) }
+@media (max-width: 760px) { .team .who { grid-template-columns: minmax(0, 1fr) } }
+
+#register { background: var(--cream) }
 .register { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 88px) }
-.register h2 { font-size: clamp(44px, 5.4vw, 68px) }
-.register .eyebrow { color: var(--sage); margin-bottom: 18px }
+.register h2 { font-size: clamp(40px, 5vw, 60px) }
+.register .eyebrow { margin-bottom: 18px }
 .perks { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 16px }
 .perks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start }
 .perks svg { margin-top: 3px }
-form { background: var(--cream); padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; align-content: start }
+form { background: var(--paper); padding: clamp(24px, 4vw, 44px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; align-content: start }
 .field { display: grid; gap: 6px }
 .field.full { grid-column: 1 / -1 }
 label, legend { font-size: 14px; font-weight: 600 }
-input[type=text], input[type=email], input[type=tel], select { width: 100%; min-height: 50px; padding: 0 14px; border: 1px solid #bdb6a7; background: #fff; font: 16px var(--body); color: var(--ink); border-radius: 0 }
+input[type=text], input[type=email], input[type=tel] { width: 100%; min-height: 50px; padding: 0 14px; border: 1px solid #bdb6a7; background: #fff; font: 16px var(--body); color: var(--ink); border-radius: 0 }
 fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px }
 .choices { display: flex; flex-wrap: wrap; gap: 8px }
 .choices label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1px solid #bdb6a7; background: #fff; font-weight: 500; cursor: pointer }
@@ -114,68 +128,79 @@ fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 8px }
 .thanks h3 { font-size: 40px; color: var(--forest) }
 @media (max-width: 860px) { .register { grid-template-columns: minmax(0, 1fr) } form { grid-template-columns: minmax(0, 1fr) } }
 
-footer { background: var(--ink); color: #c9c6bb; font-size: 13px; padding-block: 44px }
+footer { background: var(--ink); color: #c9c6bb; font-size: 13px; padding-block: 48px }
 footer .wrap { display: grid; gap: 18px }
-footer .brand { font-family: var(--display); font-size: 34px; color: var(--cream) }
+footer .brand { font-family: var(--display); font-size: 30px; letter-spacing: .24em; color: var(--cream) }
 footer p { max-width: 90ch }
 footer a { color: var(--cream) }
 </style>
 </head><body>
 
 <header class="hero">
-  <div class="hero-text">
-    <h1>Lucia</h1>
-    <div class="place">Mooloolaba</div>
-    <p class="lede">Your quieter side of Mooloolaba.</p>
-    <p class="count">Seventeen residences in a quiet cul-de-sac, just 200 metres from the Esplanade. Beach walks, sunset drinks and dinner at The Wharf, all an easy stroll from your front door.</p>
-    <div class="cta-row">
+  <img src="img/lucia-06w.jpg" alt="Artist's impression of Lucia, Mooloolaba">
+  <div class="hero-in wrap">
+    <div>
+      <h1>LUCIA</h1>
+      <div class="place">Mooloolaba</div>
+    </div>
+    <div class="bottom">
+      <div class="eyebrow">Seventeen residences · 2 minutes to the Esplanade</div>
+      <p class="lede">Your quieter side of Mooloolaba.</p>
       <a class="btn" href="#register">Register your interest</a>
-      <span>Registered buyers get first access, a week before public release.</span>
     </div>
   </div>
-  <div class="hero-img">
-    <img src="img/lucia-02.jpg" alt="Artist's impression of Lucia from the street">
-    <span class="tag">Artist's impression. Subject to council approval.</span>
-  </div>
+  <span class="tag">Artist's impression. Subject to council approval.</span>
 </header>
 
+<nav class="bar" aria-label="Lucia">
+  <div class="wrap">
+    <a class="mark" href="#">LUCIA</a>
+    <a class="btn dark" href="#register">Register interest</a>
+  </div>
+</nav>
+
 <main>
-  <section aria-labelledby="life-h">
-    <div class="wrap intro">
-      <div>
-        <div class="eyebrow">The lifestyle</div>
-        <h2 id="life-h">The Mooloolaba life</h2>
-        <p class="sub">A quiet cul-de-sac, 200 metres from Mooloolaba Esplanade.</p>
+  <section class="intro">
+    <div class="wrap">
+      <div class="narrow">
+        <div class="eyebrow">Introducing Lucia</div>
+        <h2>Your quieter side of Mooloolaba.</h2>
+        <p class="lead">Seventeen residences in a quiet cul-de-sac, only a two-minute walk from the Esplanade. Beach walks, sunset drinks and dinner at The Wharf, all an easy stroll from your front door.</p>
+        <p class="lead" style="font-size:15px">Registered buyers get first access, a week before public release.</p>
       </div>
-      <div>
-        <p>Start the morning with a swim between the flags, then a coffee on the Esplanade. Walk over Alex Hill, or follow the headland around to Alexandra Headland. Spend a lazy afternoon on the Spit with fish and chips. Meet friends for sunset drinks at Avani, then wander down to The Wharf for dinner. All of it on foot, with no need for the car.</p>
-        <p>With just seventeen residences, Lucia is a quieter place to come home to, a short walk from everything you love about Mooloolaba.</p>
-      </div>
+      <figure class="feature-img" style="margin-inline:0">
+        <img src="img/lucia-03.jpg" alt="Artist's impression of Lucia from the street">
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="life-h">
+    <img src="img/lucia-05.jpg" alt="">
+    <div>
+      <div class="eyebrow">The lifestyle</div>
+      <h2 id="life-h">The Mooloolaba life</h2>
+    </div>
+  </section>
+
+  <section class="life">
+    <div class="wrap narrow">
+      <p class="sub">A quiet cul-de-sac, only a two-minute walk from Mooloolaba Esplanade.</p>
+      <p>Start the morning with a swim between the flags, then a coffee on the Esplanade. Walk over Alex Hill, or spend the afternoon at the Spit with fish and chips. Meet friends for sunset drinks at Avani, then wander down to The Wharf for dinner. All without touching your car keys.</p>
+      <p>With just seventeen residences, Lucia is a quieter place to come home to, a short walk from everything you love about Mooloolaba.</p>
     </div>
   </section>
 
   <section class="building" aria-labelledby="bld-h">
-    <div class="wrap intro">
-      <div>
+    <div class="wrap">
+      <div class="narrow">
         <div class="eyebrow">The building</div>
         <h2 id="bld-h">Seventeen homes, one quiet street</h2>
-      </div>
-      <div>
         <div class="facts">
-          <div><b>17</b><span>apartments in total</span></div>
-          <div><b>15</b><span>two-bedroom residences</span></div>
-          <div><b>2</b><span>three-bedroom penthouses</span></div>
+          <div><b>17</b><span>apartments</span></div>
+          <div><b>15</b><span>two-bedroom</span></div>
+          <div><b>2</b><span>penthouses</span></div>
         </div>
-        <p style="margin-top:24px">Residents share a pool and a common area, a place to cool off or catch up with neighbours without leaving home.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="homes">
-    <div class="wrap">
-      <div class="homes-head">
-        <h2>The homes</h2>
-        <p>Floor plans, finishes and pricing go to registered buyers first, before anything is released to the public.</p>
+        <p class="pool">Residents share a pool and a common area, a place to cool off or catch up with neighbours without leaving home.</p>
       </div>
       <div class="cards">
         <article class="card">
@@ -190,23 +215,22 @@ footer a { color: var(--cream) }
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div class="gallery">
-        <figure><img src="img/lucia-05.jpg" alt="Artist's impression of Lucia"></figure>
-        <figure><img src="img/lucia-07.jpg" alt="Artist's impression of Lucia"></figure>
-        <figure><img src="img/lucia-08.jpg" alt="Artist's impression of Lucia"></figure>
-        <figure><img src="img/lucia-10.jpg" alt="Artist's impression of Lucia"></figure>
-        <figure><img src="img/lucia-09.jpg" alt="Artist's impression of Lucia"></figure>
-      </div>
-      <p class="caption">All images are artist's impressions and subject to council approval. Final design and finishes may change.</p>
+  <section style="padding-block: 10px">
+    <div class="gallery">
+      <figure><img src="img/lucia-07.jpg" alt="Artist's impression of Lucia"></figure>
+      <figure><img src="img/lucia-08.jpg" alt="Artist's impression of Lucia"></figure>
+      <figure><img src="img/lucia-10.jpg" alt="Artist's impression of Lucia"></figure>
     </div>
+    <p class="caption wrap">All images are artist's impressions and subject to council approval. Final design and finishes may change.</p>
   </section>
 
   <section class="progress" aria-labelledby="prog-h">
     <div class="wrap">
-      <h2 id="prog-h">Lucia is taking shape</h2>
-      <p>Registered buyers get a short update by email each month as Lucia moves from approval to construction.</p>
+      <div class="narrow">
+        <div class="eyebrow">Progress</div>
+        <h2 id="prog-h">Lucia is taking shape</h2>
+        <p>Registered buyers get a short update by email each month as Lucia moves from approval to construction.</p>
+      </div>
       <ol class="steps">
         <li class="now"><b>Development application</b><span>With Sunshine Coast Council now</span></li>
         <li><b>Early access</b><span>Registered buyers, one week before release</span></li>
@@ -214,6 +238,18 @@ footer a { color: var(--cream) }
         <li><b>Construction</b><span>To follow</span></li>
         <li><b>Completion</b><span>To follow</span></li>
       </ol>
+    </div>
+  </section>
+
+  <section class="team" aria-labelledby="team-h">
+    <div class="wrap narrow">
+      <div class="eyebrow">The team</div>
+      <h2 id="team-h">Developed and built by Broer</h2>
+      <p class="lead" style="font-size:19px;color:var(--muted);margin-top:22px">A family of builders and developers with roots in Mooloolaba going back four generations.</p>
+      <div class="who">
+        <div><b>Developer &amp; builder</b><span>Broer</span></div>
+        <div><b>Architect</b><span>K Architecture</span></div>
+      </div>
     </div>
   </section>
 
@@ -261,7 +297,7 @@ footer a { color: var(--cream) }
 
 <footer>
   <div class="wrap">
-    <div class="brand">Lucia Mooloolaba</div>
+    <div class="brand">LUCIA</div>
     <p>35 Smith Street, Mooloolaba QLD 4557 · Developed by Broer Constructions Pty Ltd · QBCC Licence No. 15514619 · Enquiries: <a href="mailto:sales@broer.com.au">sales@broer.com.au</a></p>
     <p id="privacy"><b>Privacy notice.</b> Broer Constructions Pty Ltd collects your name and contact details to send you information about Lucia, including monthly updates and early-access offers. We don't sell or share your details with anyone else, other than the email service that sends our updates and the selling agent we appoint for Lucia. You can unsubscribe from any email, or ask us to see, correct or delete your details, by emailing sales@broer.com.au.</p>
     <p>Images are artist's impressions and subject to council approval. The design, finishes, number and mix of apartments may change. This website is not an offer, and registering your interest is not a contract or a reservation.</p>
